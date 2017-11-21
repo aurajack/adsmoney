@@ -1,0 +1,245 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterPage.master.vb" Inherits="adsmoney.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <link href="css/style.css?v=6" rel="stylesheet" />
+    <link href="css/styleLogin.css?v=2" rel="stylesheet" />
+    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jsMaster.js?v=3"></script>
+   
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class='success' style='display: none'>บันทึกข้อมูลเรียบร้อย</div>
+        <div class='error' style='display: none'></div>
+        <div>
+            <div style="width: 100%; text-align: center; margin: auto;">
+                <table style="width: 100%; height: 100%; border-collapse: collapse; border-spacing: 0;" align="center">
+                    <tr>
+                        <td style="height: 10px; background-color: #1b1c1d;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #1b1c1d; color: #e2e2e2;">
+                            <div style="text-align: left; height: 80px; border-bottom: solid 1px #3d3e3f;">
+                                <img src="image/logo.png" style="width: 70px; vertical-align: middle;" />
+                                <span style="vertical-align: middle;">www.365.com</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="height: 80px; border-bottom: solid 1px #dddddd;">
+                                <div style="left:48%; position:absolute;">
+                                     <span style="font-size: 28px; font-weight: bold; vertical-align: middle;">www.threesixfive.com</span>
+                                </div>
+                               
+                                <div style="width: 200px; border: solid 1px #9ecad3; border-radius: 5px; float: right; font-size: 12px; background-color: #f5f8f9;">
+                                    <table style="width: 200px; border-collapse: collapse; border-spacing: 0;">
+                                        <tr>
+                                            <td style="height: 5px; width: 5px;"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="width: 5px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <div class="round">
+                                                    <img src="image/user.jpg" width="50" />
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <div style="float: right; font-size: 12px; text-align: right;">
+                                                    <span>ยินดีต้อนรับคุณ</span>
+                                                    <span id="name">aurajack</span><br />
+                                                    <span id="member_status" style="float:left;" ></span>
+                                                    <a class="eff" style="text-decoration: underline; cursor: pointer;"><span onclick="conflogout();">Logout</span></a>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 5px;"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <%--<tr>
+                                        <td>
+                                            <span>ยินดีต้อนรับคุณ</span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <span>aurajack</span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <div><span>Logout</span></div>
+                                        </td>
+                                        <td style="width: 20px;"></td>
+                                    </tr>--%>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #1b1c1d; width: 200px; color: #e2e2e2; font-size: 14px; vertical-align:top;">
+                            <div class="menu">
+                               
+                            </div>
+                        </td>
+                        <td style="vertical-align:top;">                          
+                            <%--   <input type="file" onchange="previewFile()">
+                            <img id="img" src="" height="200" alt="Image preview...">--%>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="divLoadingTemplate" style="display: none;">
+            <div class='divOver'>
+            </div>
+            <div id="divLoader1">
+                <center>
+                        <table id="tableLoad" align="center">
+                            <tr>
+                                <td style="width:50px;"></td>
+                                <td>
+                                     <img src="image/loading.gif" />
+                                       
+                                </td>
+                                <td><span style="color:#000; font-size:24px;">Now loading ...</span> </td>
+                            </tr>
+                        </table>
+                                       
+                    </center>
+            </div>
+        </div>
+        <div id="divLoadingTemplate" style="display: none;">
+            <div class='divOver'>
+            </div>
+            <div id="divLoader1">
+                <center>
+                        <table id="tableLoad" align="center">
+                            <tr>
+                                <td style="width:50px;"></td>
+                                <td>
+                                     <img src="image/loading.gif" />
+                                       
+                                </td>
+                                <td><span style="color:#000; font-size:24px;">กรุณารอสักครู่ ...</span> </td>
+                            </tr>
+                        </table>
+                                       
+                    </center>
+            </div>
+        </div>
+        <div id="divConfirmTemplate" style="display: none;">
+            <div class='divOver'>
+            </div>
+            <div id="divConfirm">
+                <center>
+                        <table id="tableConfirm" align="center">
+                            <tr>                                
+                                <td style="float:left; width:400px;">                                     
+                                   <div style="text-align:left; font-size:22px; font-weight:bold; padding:10px; border-bottom: solid 1px #dddddd;">ยืนยันการออกจากระบบ</div>    
+                                    <table style="width: 400px; border-collapse: collapse; border-spacing: 0;">
+                                        <tr>
+                                            <td style="height:20px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center;"><span>คุณต้องการออกจากระบบหรือไม่</span></td>
+                                        </tr>
+                                         <tr>
+                                            <td style="height:20px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table style="width: 400px; border-collapse: collapse; border-spacing: 0;">
+                                                    <tr>
+                                                        <td style="width:90px;"></td>
+                                                        <td>
+                                                            <div style="width:100px; float:left;">
+                                                                <input id="btnConfirm" class="btnsubmit" type="button" value="ยืนยัน" style="text-align:center;" />
+                                                            </div> 
+                                                            <div style="width:100px; float:right;">
+                                                                <input id="btnCancel" class="btncancel" type="button" value="ยกเลิก" style="text-align:center;" />
+                                                            </div> 
+                                                        </td>
+                                                        <td style="width:90px;"></td>
+                                                    </tr>
+                                                </table>
+                                               
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>                                
+                            </tr>
+                           
+                        </table>
+                                       
+                    </center>
+            </div>
+        </div>
+        <script>
+            $(function () {
+
+                checkCookie();
+                
+                setInterval(function () { checkCookie(); }, 10000);
+                CreateMenu(checkExpire());
+                CheckNoti();
+                //$('#test').click(function () {
+
+                //    $('.success').fadeIn(500).delay(2000).fadeOut(500); //fade out after 3 seconds
+
+                //});
+
+                $('#btnConfirm').click(function () {
+
+                    logout();
+
+                });
+
+                $('#btnCancel').click(function () {
+
+                    $('#divConfirmTemplate').fadeOut(400);
+
+                });
+
+            });
+
+            //function previewFile() {
+            //    var preview = document.querySelector('#img'); //selects the query named img
+            //    var file = document.querySelector('input[type=file]').files[0]; //sames as here
+            //    var reader = new FileReader();
+
+            //    reader.onloadend = function () {
+            //        preview.src = reader.result;
+            //    }
+
+            //    if (file) {
+            //        reader.readAsDataURL(file); //reads the data as a URL
+            //    } else {
+            //        preview.src = "";
+            //    }
+            //}
+
+            //previewFile();  //calls the function named previewFile()
+        </script>
+    </form>
+
+</body>
+</html>

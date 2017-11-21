@@ -1,0 +1,8 @@
+D:\Adsmoney\adsmoney\adsmoney\bin\adsmoney.dll
+D:\Adsmoney\adsmoney\adsmoney\bin\adsmoney.pdb
+D:\Adsmoney\adsmoney\adsmoney\bin\adsmoney.xml
+D:\Adsmoney\adsmoney\adsmoney\obj\Debug\adsmoney.Resources.resources
+D:\Adsmoney\adsmoney\adsmoney\obj\Debug\adsmoney.vbproj.GenerateResource.Cache
+D:\Adsmoney\adsmoney\adsmoney\obj\Debug\adsmoney.dll
+D:\Adsmoney\adsmoney\adsmoney\obj\Debug\adsmoney.xml
+D:\Adsmoney\adsmoney\adsmoney\obj\Debug\adsmoney.pdb
